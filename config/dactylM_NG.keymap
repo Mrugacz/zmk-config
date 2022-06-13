@@ -26,7 +26,7 @@
 &kp LSHFT &kp A  &kp R     &kp S    &kp F     &kp G                       &kp M   &kp N     &kp E     &kp I    &kp O    &kp SQT
 &kp LCTRL &kp Z  &kp X     &kp C    &kp D     &kp V                       &kp K   &kp H     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
                  &kp LGUI  &kp LALT &kp DEL   &kp SPACE                   &kp RET &kp BSPC  &kp RALT  &kp RGUI
-                 &mo LOWER &kp HOME &kp LBKT  &kp BSLH                    &mo 2   &kp RBKT  &kp END   &mo RAISE                 
+                 &mo LOWER &kp HOME &kp LBKT  &kp BSLH                    &kp F24 &kp RBKT  &kp END   &mo RAISE                 
             >;
         };
 
