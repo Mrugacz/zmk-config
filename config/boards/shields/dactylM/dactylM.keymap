@@ -8,6 +8,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
 #define LOWER 1
@@ -24,12 +25,12 @@
 // | CTRL  |   Z   |   X   |   C   |   D   |   V   |  MUTE  |  |       |   K   |   H   |   ,   |   .   |   /   | SHIFT |
 //                 |  GUI  |  ALT  | CTRL  | LOWER |  ENTER |  | SPACE | RAISE | CTRL  |  ALT  |  GUI  |
             bindings = <
-&kp ESC   &kp N1 &kp N2    &kp N3   &kp N4    &kp N5                      &kp N6  &kp N7    &kp N8    &kp N9   &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W     &kp F    &kp P     &kp B                       &kp J   &kp L     &kp U     &kp Y    &kp SEMI &kp MINUS
-&kp LSHFT &kp A  &kp R     &kp S    &kp F     &kp G                       &kp M   &kp N     &kp E     &kp I    &kp O    &kp SQT
-&kp LCTRL &kp Z  &kp X     &kp C    &kp D     &kp V                       &kp K   &kp H     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-                 &kp LGUI  &kp LALT &kp DEL   &kp SPACE                   &kp RET &kp BSPC  &kp RALT  &kp RGUI
-                 &mo LOWER &kp HOME &kp LBKT  &kp BSLH                    &kp F24 &kp RBKT  &kp END   &mo RAISE                 
+&kp ESC   &kp N1 &kp N2    &kp N3    &kp N4    &kp N5                      &kp N6   &kp N7    &kp N8    &kp N9   &kp N0   &kp GRAVE
+&kp TAB   &kp Q  &kp W     &kp F     &kp P     &kp B                       &kp J    &kp L     &kp U     &kp Y    &kp SEMI &kp MINUS
+&kp LSHFT &kp A  &kp R     &kp S     &kp F     &kp G                       &kp M    &kp N     &kp E     &kp I    &kp O    &kp SQT
+&kp LCTRL &kp Z  &kp X     &kp C     &kp D     &kp V                       &kp K    &kp H     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+                 &kp LBKT &kp BSLH   &mo LOWER &kp HOME                    &kp END  &mo RAISE &kp F24   &kp RBKT                   
+                 &kp DEL   &kp SPACE &kp LGUI  &kp LALT                    &kp RALT &kp RGUI  &kp RET   &kp BSPC  
             >;
         };
 
@@ -59,13 +60,13 @@
 // |       |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   |   |
 // |       |  =  |  -  |  +   |  {   |  }   |        |  |       |  [   |  ]    |  ;    |  :   |   \   |       |
 //               |     |      |      |      |        |  |       |      |       |       |      |
-           bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5       &kp F6                 &kp F7      &kp F8       &kp F9  &kp F10    &kp F11 &kp F12
-&trans  &trans  &trans  &trans  &trans       &trans                 &trans      &trans       &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans       &trans                 &kp LEFT    &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans       &trans                 &trans      &trans       &trans  &trans     &trans  &trans
-                &trans  &trans  &trans       &trans                 &trans      &trans       &trans  &trans
-                &trans  &trans  &bootloader  &bt BT_PRV             &bt BT_NXT  &bootloader  &trans  &trans                 
+           bindings = <  
+&kp F1        &kp F2  &kp F3       &kp F4      &kp F5  &kp F6                 &kp F7      &kp F8       &kp F9      &kp F10    &kp F11 &kp F12
+&out OUT_TOG  &trans  &trans       &trans      &trans  &trans                 &trans      &trans       &trans      &trans     &trans  &trans
+&trans        &trans  &trans       &trans      &trans  &trans                 &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT  &trans  &trans
+&trans        &trans  &trans       &trans      &trans  &trans                 &trans      &trans       &trans      &trans     &trans  &trans
+                      &bootloader  &bt BT_PRV  &trans  &trans                 &trans      &trans       &bt BT_NXT  &bootloader                 
+                      &trans       &trans      &trans  &trans                 &trans      &trans       &trans      &trans
             >;
         };
 
@@ -77,13 +78,13 @@
 // |     | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |       |
 //              |      |       |       |      |      |  |      |      |      |       |      |
            bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5       &kp F6                 &kp F7      &kp F8       &kp F9  &kp F10    &kp F11 &kp F12
-&trans  &trans  &trans  &trans  &trans       &trans                 &trans      &trans       &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans       &trans                 &kp LEFT    &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans       &trans                 &trans      &trans       &trans  &trans     &trans  &trans
-                &trans  &trans  &trans       &trans                 &trans      &trans       &trans  &trans
-                &trans  &trans  &bootloader  &bt BT_PRV             &bt BT_NXT  &bootloader  &trans  &trans                 
-            >;
+&kp F1        &kp F2  &kp F3       &kp F4      &kp F5  &kp F6                 &kp F7      &kp F8       &kp F9      &kp F10    &kp F11 &kp F12
+&out OUT_TOG  &trans  &trans       &trans      &trans  &trans                 &trans      &trans       &trans      &trans     &trans  &trans
+&trans        &trans  &trans       &trans      &trans  &trans                 &kp LEFT    &kp DOWN     &kp UP      &kp RIGHT  &trans  &trans
+&trans        &trans  &trans       &trans      &trans  &trans                 &trans      &trans       &trans      &trans     &trans  &trans
+                      &bootloader  &bt BT_PRV  &trans  &trans                 &trans      &trans       &bt BT_NXT  &bootloader
+                      &trans       &trans      &trans  &trans                 &trans      &trans       &trans      &trans
+      	    >;
         };
     };
 };
