@@ -52,7 +52,7 @@
                                                &trans       &trans                 &trans      &trans
                                                &trans       &trans                 &trans      &trans                 
                                                &trans       &trans                 &trans      &trans
-                                               &bt BT_PRV   &bootloader            &bootlader  &bt BT_NXT
+                                               &bt BT_PRV   &trans                 &trans      &bt BT_NXT
             >;
         };
 
@@ -71,7 +71,7 @@
                                                &trans       &trans                 &trans      &trans
                                                &trans       &trans                 &trans      &trans                 
                                                &trans       &trans                 &trans      &trans
-                                               &bt BT_PRV   &bootloader            &bootlader  &bt BT_NXT
+                                               &bt BT_PRV   &trans                 &trans      &bt BT_NXT
       	    >;
         };
     };
