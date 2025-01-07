@@ -11,11 +11,9 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define CORNE 1
-#define LOWER 2
-#define RAISE 3
-#define CLOW 4
-#define CRAI 5
+#define LOWER 1
+#define RAISE 2
+#define SWAP 3
 
 // &mt {
 //     tapping-term-ms = <400>;
@@ -23,17 +21,28 @@
 // };
 
 / {
+
+    behaviors {
+        mo_sl: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&sl>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&kp ESC     &kp N1    &kp N2    &kp N3      &kp N4  &kp N5  &kp N6              &kp N7     &kp N8      &kp N9          &kp N0    &kp GRAVE
-&kp TAB     &kp Q     &kp W     &kp E       &kp R   &kp T   &kp Y               &kp U      &kp I       &kp O           &kp P     &kp MINUS
-&kp LSHFT   &kp A     &kp S     &kp D       &kp F   &kp G   &kp H               &kp J      &kp K       &kp L           &kp SEMI  &kp SQT
-&kp LCTRL   &kp Z     &kp X     &kp C       &kp V   &kp B   &kp N               &kp M      &kp COMMA   &kp DOT         &kp FSLH  &kp RSHFT
-&kp BSLH    &kp LBKT  &kp RBKT  &kp EQUAL                   &mt LGUI BACKSLASH  &kp SPACE  &kp RETURN  &mt RGUI EQUAL
-&lt 1 LBKT  &kp DEL   &kp BSPC  &lt 2 RBKT                  &kp LALT            &kp HOME   &kp END     &kp RALT
+&kp ESC     &kp N1    &kp N2    &kp N3      &kp N4  &kp N5  &kp N6     &kp N7     &kp N8      &kp N9          &kp N0    &kp GRAVE
+&kp TAB     &kp Q     &kp W     &kp E       &kp R   &kp T   &kp Y      &kp U      &kp I       &kp O           &kp P     &kp MINUS
+&kp LSHFT   &kp A     &kp S     &kp D       &kp F   &kp G   &kp H      &kp J      &kp K       &kp L           &kp SEMI  &kp SQT
+&kp LCTRL   &kp Z     &kp X     &kp C       &kp V   &kp B   &kp N      &kp M      &kp COMMA   &kp DOT         &kp FSLH  &kp RSHFT
+&kp BSLH    &kp LBKT  &kp RBKT  &kp EQUAL                   &kp LGUI   &kp SPACE  &kp RETURN  &kp RGUI
+&mo_sl 1 3  &kp DEL   &kp BSPC  &mo_sl 2 3                  &kp LALT   &kp HOME   &kp END     &kp RALT
             >;
         };
 
@@ -44,7 +53,7 @@
 &trans        &trans  &trans  &trans      &trans  &trans  &kp LEFT      &kp DOWN  &kp UP  &kp RIGHT     &trans   &trans
 &trans        &trans  &trans  &trans      &trans  &trans  &trans        &trans    &trans  &trans        &trans   &trans
 &trans        &trans  &trans  &bt BT_CLR                  &trans        &trans    &trans  &trans
-&trans        &trans  &trans  &tog 3                      &bt BT_SEL 0  &trans    &trans  &bt BT_SEL 1
+&trans        &trans  &trans  &trans                      &bt BT_SEL 0  &trans    &trans  &bt BT_SEL 1
             >;
         };
 
@@ -55,18 +64,18 @@
 &trans        &trans  &trans  &trans      &trans  &trans  &kp LEFT      &kp DOWN  &kp UP  &kp RIGHT     &trans   &trans
 &trans        &trans  &trans  &trans      &trans  &trans  &trans        &trans    &trans  &trans        &trans   &trans
 &trans        &trans  &trans  &bt BT_CLR                  &trans        &trans    &trans  &trans
-&tog 3        &trans  &trans  &trans                      &bt BT_SEL 0  &trans    &trans  &bt BT_SEL 1
+&trans        &trans  &trans  &trans                      &bt BT_SEL 0  &trans    &trans  &bt BT_SEL 1
             >;
         };
 
-        home_row_mods {
+        swap_hands {
             bindings = <
-&trans  &trans          &trans      &trans       &trans       &trans      &trans      &trans       &trans       &trans      &trans              &trans
-&trans  &trans          &trans      &trans       &trans       &trans      &trans      &trans       &trans       &trans      &trans              &trans
-&trans  &mt LEFT_WIN A  &mt LALT S  &mt LSHFT D  &mt LCTRL F  &mt HOME G  &mt END H   &mt RCTRL J  &mt RSHFT K  &mt LALT L  &mt RGUI SEMICOLON  &trans
-&trans  &trans          &trans      &trans       &trans       &mt RALT B  &mt RALT N  &trans       &trans       &trans      &trans              &trans
-&trans  &trans          &trans      &trans                                &trans      &trans       &trans       &trans
-&trans  &trans          &trans      &trans                                &trans      &trans       &trans       &trans
+&kp GRAVE     &kp N0    &kp N9    &kp N8      &kp N7  &kp N6  &kp N5     &kp N4     &kp N3      &kp N2          &kp N1    &kp ESC
+&kp MINUS     &kp P     &kp O     &kp I       &kp U   &kp Y   &kp T      &kp R      &kp E       &kp W           &kp Q     &kp TAB
+&kp SQT   &kp SEMI     &kp L     &kp K       &kp J   &kp H   &kp G      &kp F      &kp D       &kp S           &kp A  &kp LSHFT
+&kp RSHFT   &kp FSLH     &kp DOT     &kp COMMA       &kp M   &kp N   &kp B      &kp V      &kp C   &kp X         &kp Z  &kp LCTRL
+&kp RGUI    &kp RETURN  &kp SPACE  &kp LGUI                   &kp EQUAL   &kp RBKT  &kp LBKT  &kp BSLH
+&trans  &kp BSPC   &kp DEL  &trans                  &kp RALT   &kp END   &kp HOME     &kp LALT
             >;
         };
     };
