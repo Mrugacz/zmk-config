@@ -1,14 +1,17 @@
-# Copyright (c) 2020 Ryan Cross
-# SPDX-License-Identifier: MIT
-
-if SHIELD_DACTYLM_LEFT
+if SHIELD_DACTYLM_DONGLE
 
 config ZMK_KEYBOARD_NAME
 	default "Dactyl"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
-	
+
+config ZMK_USB
+	default y
+
+config ZMK_SPLIT
+	default y
+
 endif
 
 if SHIELD_DACTYLM_LEFT || SHIELD_DACTYLM_RIGHT
