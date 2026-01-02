@@ -1,5 +1,13 @@
 #include "dactylM.dtsi"
 
+/ {
+	chosen {
+		/delete-property/ zmk,physical-layout;
+		zmk,kscan = &kscan0;
+		zmk,matrix_transform = &default_transform;
+	};
+};
+
 &kscan0 {
 	col-gpios
 		= <&pro_micro 10 GPIO_ACTIVE_HIGH>
@@ -10,4 +18,3 @@
 		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
 		;
 };
-
