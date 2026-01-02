@@ -12,6 +12,9 @@ config ZMK_USB
 config ZMK_SPLIT
 	default y
 
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
 endif
 
 if SHIELD_DACTYLM_LEFT || SHIELD_DACTYLM_RIGHT
